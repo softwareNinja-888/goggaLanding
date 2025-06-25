@@ -1,1 +1,90 @@
 @import "tailwindcss";
+
+@font-face{
+    font-family: 'playfair';
+    src: url('./assets/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face{
+  font-family: 'playfairBold';
+  src: url('./assets/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf') format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'libre';
+  src: url('./assets/fonts/Libre_Bodoni/static/LibreBodoni-Regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'libreItalic';
+  src: url('./assets/fonts/Libre_Bodoni/static/LibreBodoni-Italic.ttf') format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face{
+  font-family: 'cinzel';
+  src: url('./assets/fonts/Cinzel/static/Cinzel-Regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'cinzelBold';
+  src: url('./assets/fonts/Cinzel/static/Cinzel-Bold.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'italiana';
+  src: url('./assets/fonts/Italiana/Italiana-Regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'raleway';
+  src: url('./assets/fonts/Raleway/static/Raleway-Regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'quickSand';
+  src: url('./assets/fonts/Quicksand/static/Quicksand-Regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+@theme {
+	
+  --color-green: #989858;
+  --color-maron: #ead4bd;
+
+  /*FONTS*/
+  
+  --font-playfair : 'playfair','sans-serif';
+  --font-playfairBold : 'playfairBold','sans-serif';
+
+  --font-libre : 'libre','sans-serif';
+  --font-libreItalic : 'libreItalic','sans-serif';
+
+  --font-quickSand : 'quickSand','sans-serif';
+  --font-italiana : 'italiana','sans-serif';
+  --font-raleway : 'raleway','sans-serif';
+  
+  --font-cinzel : 'cinzel','sans-serif';
+  --font-cinzelBold : 'cinzelBold','sans-serif';
+
+  
+
+}
+
+
+body{
+  background-color: #fdfcf1;
+}
