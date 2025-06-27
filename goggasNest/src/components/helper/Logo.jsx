@@ -9,7 +9,6 @@ export function Logo({ name='WayPoint Media',textColor='text-white text-3xl',bg=
                 <div className="md:block text-sm lg:text-3xl font-vibes">{name}</div>
                 <div>
                     <IoBedOutline className="w-7 h-7"/>
-                    {/* <img src={img} alt="logo" className="w-8 h-8"/> */}
                 </div>
             </a>  
         </>

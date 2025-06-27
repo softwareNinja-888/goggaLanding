@@ -1,5 +1,7 @@
 import { Btn } from "./helper/Btn";
 import { motion } from "framer-motion";
+import { Logo } from "./helper/Logo";
+import { BookForm } from "./helper/BookForm";
 
 
 // TODO ADD HOTEL CHECK IN CHECKOUT BOX.
@@ -49,7 +51,7 @@ export function Hero() {
     return (
         <>
             <motion.div 
-                className="relative bg-white/30 backdrop-blur-lg p-6 w-11/12 md:w-8/12 lg:w-6/12 mx-auto rounded-4xl my-8 lg:my-20 flex flex-col gap-5"
+                className="relative bg-white/30 backdrop-blur-lg p-6 w-11/12 md:w-8/12 lg:w-7/12 mx-auto rounded-4xl my-8 lg:my-20 flex flex-col gap-5"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -58,56 +60,31 @@ export function Hero() {
                     className="flex gap-3 justify-center items-center"
                     variants={logoVariants}
                 >
-                    <motion.img 
-                        src='/logo3.svg' 
-                        alt="" 
-                        className="w-10 h-10"
-                        whileHover={{ rotate: 10, scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                    />
-                    <div className="font-Cal_Sans text-lg">Digital Excellence</div>
-                </motion.div>
+                <Logo name='Goggas Nest' textColor="text-black text-2xl" />
+            </motion.div>
 
 
                 <motion.div 
-                    className="text-xl md:text-4xl font-Cal_Sans text-center"
+                    className="text-xl md:text-3xl font-playfair text-center"
                     variants={itemVariants}
                 > 
-                    Enter the new age of digital innovation
+                    Your Lakeside Hideaway Awaits
                 </motion.div>
 
                 <motion.div 
-                    className="font-Roboto text-center w-12/12 md:w-12/12 mx-auto text-md md:text-md"                        
+                    className="font-quickSand text-center w-10/12 md:w-11/12 mx-auto text-md md:text-md"                        
                     variants={itemVariants}
                 >
 
                     {/* Subtext */}
-                    
-                    Reimagine your digital presence with Bluepeak Media — a forward-thinking tourism marketing agency where cutting-edge technology, creative strategy, and visual storytelling come together to elevate your brand, captivate your audience, and drive real-world results.
-
-
+                    A stay at Goggas Nest Boutique will be a moment of true escape, not just a room for the night . Our menus are crafted from hand-picked, garden fresh produce and local specialties, offering a dining experience that nourishes both body and soul.
                 </motion.div>
-
-                <div className="flex flex-row justify-center gap-3">
-                    <motion.div
-                        variants={itemVariants}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                    >
-                        <a href='/portfolio' className="mx-auto block w-fit ">
-                            <Btn text="See Projects" bg="bg-mainGreen border-none" textColor="text-black text-sm trasition-all duration-500 hover:rounded-xl hover:scale-103 " font="font-Inter" width='w-30 h-10 md:h-11 md:w-46'/>
-                        </a>
-                    </motion.div>
-                    <motion.div
-                        variants={itemVariants}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                    >
-                        <a href='/contact' className="mx-auto block w-fit ">
-                            <Btn text="Schedule Call" bg="bg-mainGreen border-none" textColor="text-black text-sm trasition-all duration-500 hover:rounded-xl hover:scale-103 " font="font-Inter" width='w-30 h-10 md:h-11 md:w-46'/>
-                        </a>
-                    </motion.div>
-                </div>
+                <motion.div 
+                    className="-mt-10"
+                    variants={itemVariants}
+                > 
+                    <BookForm/>
+                </motion.div>
             </motion.div>
         </>
 

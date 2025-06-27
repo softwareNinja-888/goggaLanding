@@ -7,3 +7,4 @@ export function Btn({text='Place Order',bg='bg-secondary hover:bg-transparent',b
         </>
     )
 }
+

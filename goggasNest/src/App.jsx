@@ -15,7 +15,7 @@ function App() {
       <div className="">
 
 
-        <div className="bg-center bg-cover bg-no-repeat py-6  " style={{backgroundImage: "url('area/view4.jpg')"}}>
+        <div className="bg-center bg-cover bg-no-repeat py-6  " style={{backgroundImage: "url('area/goggaHero.jpg')"}}>
           {/*1. Header (Logo + Navigation)*/}
           <Header/>
 
