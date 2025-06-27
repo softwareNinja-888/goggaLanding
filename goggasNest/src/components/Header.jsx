@@ -11,8 +11,8 @@ export function Header(){
     const [menuOpen, setMenuOpen ] = useState(false)
     const links = [
 	    { id: 0, text: "Our Story", href: "#about" },
-	    { id: 1, text: "Portfolio", href: "#portfolio" },
-	    { id: 2, text: "Pricing", href: "#pricing" },
+	    { id: 1, text: "Rooms", href: "#rooms" },
+	    { id: 2, text: "Amenities", href: "#amenities" },
 	    { id: 3, text: "Contact", href: "#contact" },
 	]
 
@@ -23,7 +23,7 @@ export function Header(){
         <div className="flex justify-between items-center bg-white/90 backdrop-blur-lg px-3 md:px-10 w-11/12 rounded-2xl mx-auto py-2 gap-0">
 
             {/* LOGO */}
-            <Logo name='BluePeak Media' textColor="text-black text-2xl" img='/logo3.svg'/>
+            <Logo name='Goggas Nest' textColor="text-black text-2xl" img='/logo3.svg'/>
 
             {/* MENU */}
             <div className="lg:hidden">
@@ -43,7 +43,7 @@ export function Header(){
             </nav> 
 
             {/* CTA */}
-            <Btn text="Schedule Call" bg="bg-mainGreen border-none" textColor="hidden md:flex text-black text-sm trasition-all duration-500 hover:rounded-xl hover:scale-103 " font="font-Roboto" width='h-11 w-36'/>
+            <Btn text="Book Room"  textColor="hidden md:flex text-white hover:text-secondary text-sm trasition-all duration-500 hover:rounded-xl hover:scale-103 " font="font-Roboto" width='h-11 w-36'/>
 
         </div>
     )

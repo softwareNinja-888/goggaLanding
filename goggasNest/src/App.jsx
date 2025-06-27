@@ -6,6 +6,7 @@ import { Header } from "./components/Header"
 import { Hero } from "./components/Hero"
 import { Gallery } from "./components/Gallery"
 import { Footer } from "./components/Footer"
+import { About } from './components/About'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
       <div className="">
 
 
-        <div className="bg-center bg-cover bg-no-repeat py-6  " style={{backgroundImage: "url('/view4.jpg')"}}>
+        <div className="bg-center bg-cover bg-no-repeat py-6  " style={{backgroundImage: "url('area/view4.jpg')"}}>
           {/*1. Header (Logo + Navigation)*/}
           <Header/>
 
@@ -22,8 +23,8 @@ function App() {
           <Hero/>
         </div>
        
-        {/*<Hero/>*/}
         {/*3. About/Welcome Section*/}
+        <About/>
         {/*4. Rooms & Rates*/}
         {/*5. Amenities/Facilities*/}
         {/*6. Gallery*/}

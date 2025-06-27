@@ -1,12 +1,15 @@
+import { IoBedOutline } from "react-icons/io5"
+
 export function Logo({ name='WayPoint Media',textColor='text-white text-3xl',bg='bg-mainBg',border='border-black',width='w-55',img="/logo3.svg"}){
 
 
     return (
         <>
-            <a href='/' className={`flex justify-center items-center gap-2 cursor-pointer font-Cal_Sans ${textColor} `} >
-                <div className="md:block text-sm lg:text-xl">{name}</div>
+            <a href='/' className={`flex justify-center items-center gap-4 cursor-pointer font-Cal_Sans ${textColor} `} >
+                <div className="md:block text-sm lg:text-3xl font-vibes">{name}</div>
                 <div>
-                    <img src={img} alt="logo" className="w-8 h-8"/>
+                    <IoBedOutline className="w-7 h-7"/>
+                    {/* <img src={img} alt="logo" className="w-8 h-8"/> */}
                 </div>
             </a>  
         </>

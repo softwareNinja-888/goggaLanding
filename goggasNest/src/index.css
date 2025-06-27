@@ -57,21 +57,40 @@
   font-weight: 400;
   font-style: normal;
 }
+@font-face{
+  font-family: 'vibes';
+  src: url('./assets/fonts/GreatVibes-Regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 
 
 @theme {
 	
-  --color-green: #989858;
+
+    --color-background: #F4F1E7;
+    --color-primary: #2A6F6F;
+    --color-secondary: #8C6E63;
+    --color-accent: #D9CEB2;
+    --color-textDark: #333333;
+    --color-textLight: #FFFFFF;
+
+/*  --color-green: #989858;
   --color-maron: #ead4bd;
+  --color-brown:#a3bed9;
+  --color-mainGreen: #BFFF71;*/
+
 
   /*FONTS*/
-  
+
   --font-playfair : 'playfair','sans-serif';
   --font-playfairBold : 'playfairBold','sans-serif';
 
   --font-libre : 'libre','sans-serif';
   --font-libreItalic : 'libreItalic','sans-serif';
+  --font-vibes : 'vibes','sans-serif';
 
   --font-quickSand : 'quickSand','sans-serif';
   --font-italiana : 'italiana','sans-serif';
@@ -86,5 +105,5 @@
 
 
 body{
-  background-color: #fdfcf1;
+  background-color: #F4F1E7;
 }

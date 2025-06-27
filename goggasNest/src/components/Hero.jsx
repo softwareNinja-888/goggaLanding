@@ -1,6 +1,9 @@
 import { Btn } from "./helper/Btn";
 import { motion } from "framer-motion";
 
+
+// TODO ADD HOTEL CHECK IN CHECKOUT BOX.
+
 export function Hero() {
     // Container animation for the main hero content box
     const containerVariants = {
