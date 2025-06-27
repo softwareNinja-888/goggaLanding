@@ -13,7 +13,9 @@ export function Header(){
 	    { id: 0, text: "Our Story", href: "#about" },
 	    { id: 1, text: "Rooms", href: "#rooms" },
 	    { id: 2, text: "Amenities", href: "#amenities" },
-	    { id: 3, text: "Contact", href: "#contact" },
+        { id: 3, text: "Gallery", href: "#gallery" },
+	    { id: 4, text: "Contact", href: "#contact" },
+
 	]
 
 

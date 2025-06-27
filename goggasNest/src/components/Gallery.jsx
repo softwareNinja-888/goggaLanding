@@ -23,14 +23,16 @@ function GalleryCard({img='/view.jpg',name="Coast Villa"}){
 export function Gallery() {
     return ( 
         <>
-            <div id="gallery" className="text-5xl font-quickSand uppercase text-center mb-16">Gallery</div>
-            <div className="grid grid-cols-1 md:grid-cols-2 mx-auto justify-center items-center w-11/12 lg:w-11/12 gap-18 md:gap-3">
+           <div>
+                <div id="gallery" className="text-5xl font-playfair uppercase text-center mb-16">Gallery</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 mx-auto justify-center items-center w-11/12 lg:w-11/12 gap-18 md:gap-3">
 
-                <GalleryCard name="Dining Area" img="area/view.jpg"/>
-                <GalleryCard name="Garden" img="area/garden.jpg"/>
-                <GalleryCard name="Bar" img="area/bar1.jpg"/>
-                <GalleryCard name="Lake" img="area/view3.jpg"/>
-            </div>
+                    <GalleryCard name="Dining Area" img="area/view.jpg"/>
+                    <GalleryCard name="Garden" img="area/garden.jpg"/>
+                    <GalleryCard name="Dining Table" img="area/goggaDining.jpg"/>
+                    <GalleryCard name="Lake" img="area/view3.jpg"/>
+                </div>
+           </div>
 
         </>
     );

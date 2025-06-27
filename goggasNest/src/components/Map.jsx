@@ -10,8 +10,9 @@ export function Map() {
 
     return (
         <>
-            <div className="pt-40 pb-10 uppercase font-quickSand text-5xl text-center ">Visit Us</div>
-            <section ref={ref} className="bg-[linear-gradient(to_bottom,_#fff_0%,_#fff_50%,_#d1d5dc_50%,_#d1d5dc_100%)] z-50 ">
+           <div>
+            <div className="pt-0 pb-10 uppercase font-playfair text-5xl text-center ">Visit Us</div>
+            <section ref={ref} className="bg-[linear-gradient(to_bottom,_#F4F1E7_0%,_#F4F1E7_50%,_#d1d5dc_50%,_#d1d5dc_100%)] z-50 ">
                 {/* Map */}
                 <motion.div
                  initial={{ opacity: 0, y: 50 }}
@@ -26,6 +27,7 @@ export function Map() {
                     ></iframe>
                 </motion.div>
             </section>
+           </div>
         </>
     );
 }

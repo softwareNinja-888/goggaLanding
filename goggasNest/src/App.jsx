@@ -4,17 +4,18 @@ import './App.css'
 
 import { Header } from "./components/Header"
 import { Hero } from "./components/Hero"
-import { Gallery } from "./components/Gallery"
-import { Footer } from "./components/Footer"
 import { About } from './components/About'
+import { Rooms } from './components/Rooms'
+import { Highlights } from './components/Highlights'
+import { Gallery } from "./components/Gallery"
+import { Review } from "./components/Review"
+import { Footer } from "./components/Footer"
 
 function App() {
 
   return (
     <>
-      <div className="">
-
-
+      <div className="flex flex-col gap-40">
         <div className="bg-center bg-cover bg-no-repeat py-6  " style={{backgroundImage: "url('area/goggaHero.jpg')"}}>
           {/*1. Header (Logo + Navigation)*/}
           <Header/>
@@ -25,13 +26,18 @@ function App() {
        
         {/*3. About/Welcome Section*/}
         <About/>
+        
         {/*4. Rooms & Rates*/}
+        <Rooms/>
+
         {/*5. Amenities/Facilities*/}
+        <Highlights/>
         {/*6. Gallery*/}
         <Gallery/>
         {/*7. Guest Reviews/Testimonials*/}
-        {/*9. Contact & Booking Form*/}
-
+        <div className="flex mx-auto">
+          <Review/>
+        </div>
         {/*10. Footer */}
         <Footer/>
         
