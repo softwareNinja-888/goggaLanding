@@ -7,6 +7,12 @@ import { IoMenuSharp } from "react-icons/io5"
 import { useState } from 'react'
 
 
+function smoothClick(e,sec){
+    e.preventDefault();
+    const section = document.querySelector(`#${sec}`);
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export function Header(){
     const [menuOpen, setMenuOpen ] = useState(false)
     const links = [
@@ -37,7 +43,7 @@ export function Header(){
             <nav className="hidden md:flex md:space-x-10 lg:space-x-18 text-sm ">        
                 {links.map((link,index)=>{
                     return (
-                        <a  key={link.id} href={link.href} className={` flex gap-1.5 no-underline relative cursor-pointer text-black `}>
+                        <a  key={link.id} href={link.href} onClick={()=>smoothClick()} className={` flex gap-1.5 no-underline relative cursor-pointer text-black `}>
                             <AnimatedWord word={link.text} textColor='text-black' font='font-raleway' textSize="text-md"/>
                         </a>
                     )

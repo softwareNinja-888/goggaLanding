@@ -32,12 +32,15 @@ function App() {
 
         {/*5. Amenities/Facilities*/}
         <Highlights/>
+
         {/*6. Gallery*/}
         <Gallery/>
+
         {/*7. Guest Reviews/Testimonials*/}
         <div className="flex mx-auto">
           <Review/>
         </div>
+        
         {/*10. Footer */}
         <Footer/>
         

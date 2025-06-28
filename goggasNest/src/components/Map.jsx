@@ -12,7 +12,7 @@ export function Map() {
         <>
            <div>
             <div className="pt-0 pb-10 uppercase font-playfair text-5xl text-center ">Visit Us</div>
-            <section ref={ref} className="bg-[linear-gradient(to_bottom,_#F4F1E7_0%,_#F4F1E7_50%,_#d1d5dc_50%,_#d1d5dc_100%)] z-50 ">
+            <section ref={ref} className="bg-[linear-gradient(to_bottom,_#F4F1E7_0%,_#F4F1E7_50%,_#fff_50%,_#fff_100%)] z-50 ">
                 {/* Map */}
                 <motion.div
                  initial={{ opacity: 0, y: 50 }}

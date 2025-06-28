@@ -14,19 +14,21 @@ const RoomInfo = ({info,Icon})=>{
 	)
 }
 
-const RowCard = ({ title, text, image, invert }) => {
-	console.log('Check:',invert)
+const RowCard = ({data}) => {
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 items-center my-8 ${invert ? 'md:flex-row-reverse' : ''}`}>
-      <img src={image} alt={title} className="w-full h-94 object-cover rounded-md" />
+    <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 items-center my-8 `}>
+      <img src={data.image} alt={data.name} className="w-full h-94 object-cover rounded-md" />
       <div className="flex flex-col gap-3 ">
-      	<div className="font-vibes text-4xl">{title}</div>
-      	<div className="font-raleway">{text}</div>
+      	<div className="flex flex-row justify-between">
+      		<div className="font-vibes text-4xl">{data.name}</div>
+      		<div className="font-playfair text-2xl">E {data.price}</div>
+      	</div>
+      	<div className="font-raleway">{data.description}</div>
   		<div className="flex flex-col gap-5">
-  			<RoomInfo info="Rooms: 1-2" Icon={Building2} />
-  			<RoomInfo info="Rooms: 150 Sqm" Icon={Expand} />
-  			<RoomInfo info="Beds: 1 King,2 Singles" Icon={BedDouble} />
-  			<RoomInfo info="Bathrooms: 1-2" Icon={ShowerHead} />
+  			<RoomInfo info={`Rooms: ${data.rooms}`} Icon={Building2} />
+  			<RoomInfo info={`Size: ${data.size} Sqm`} Icon={Expand} />
+  			<RoomInfo info={`Beds: ${data.beds}`} Icon={BedDouble} />
+  			<RoomInfo info={`Bathrooms: ${data.bathrooms}`} Icon={ShowerHead} />
   		</div>
   		<div className="flex flex-row w-8/12 gap-5">
 
@@ -43,33 +45,22 @@ const RowCard = ({ title, text, image, invert }) => {
 export function Rooms(){
 
 	const text = 'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an'
+
+	const roomData = [
+		{id:0, name:'Mission Dolores Park',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'1500',rooms:'4',size:'150',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room.jpg"},
+		{id:1, name:'The Castro',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'1200',rooms:'4',size:'150',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room6.jpg"},
+		{id:2, name:'Haight & Ashbury',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'1000',rooms:'2',size:'130',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room2.jpg"},
+		{id:3, name:'The Golden Gate',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'800',rooms:'2',size:'120',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room3.jpg"},
+	]
 	return(
 		<>
 			<div className="grid grid-cols-1 mx-auto px-4 py-0 w-11/12" id="rooms">
-		      <RowCard 
-		        title="Mission Dolores Park"
-		        text={text}
-		        image="/room/room.jpg"
-		        invert={false}
-		      />
-		      <RowCard 
-		        title="The Castro"
-		        text={text}
-		        image="/room/room1.jpg"
-		        invert={true}
-		      />
-		      <RowCard 
-		        title="Haight & Ashbury"
-		        text={text}
-		        image="/room/room2.jpg"
-		        invert={false}
-		      />
-		      <RowCard 
-		        title="Golden Gate Bridge"
-		        text={text}
-		        image="/room/room3.jpg"
-		        invert={true}
-		      />
+          <div className="text-5xl font-playfair uppercase text-center mb-16">Our Rooms</div>
+          {/* GET DATA FROM BACKEND AND LOOP OVER */}
+
+		      {roomData.map(data=>{
+		      	return <RowCard data={data}/>
+		      })}
 			</div>
 		</>
 	)
