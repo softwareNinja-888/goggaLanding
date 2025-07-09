@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#F4F1E7" stroke="#8C6E63" stroke-width="2"/>
+  
+  <!-- Stylized nest shape -->
+  <ellipse cx="16" cy="18" rx="10" ry="6" fill="none" stroke="#8C6E63" stroke-width="1.5"/>
+  <ellipse cx="16" cy="17" rx="8" ry="4" fill="none" stroke="#8C6E63" stroke-width="1"/>
+  
+  <!-- Nest texture lines -->
+  <path d="M8 16 Q12 14 16 16 Q20 18 24 16" fill="none" stroke="#8C6E63" stroke-width="0.8" opacity="0.7"/>
+  <path d="M9 19 Q13 17 16 19 Q19 21 23 19" fill="none" stroke="#8C6E63" stroke-width="0.8" opacity="0.7"/>
+  
+  <!-- Letter 'G' integrated into design -->
+  <text x="16" y="13" font-family="serif" font-size="8" font-weight="bold" text-anchor="middle" fill="#8C6E63">G</text>
+</svg>
