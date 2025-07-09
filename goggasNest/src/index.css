@@ -115,3 +115,12 @@ html {
 body{
   background-color: #F4F1E7;
 }
+
+/* hide scrollbar on mobile */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
