@@ -107,7 +107,7 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const reviews = [
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, deleniti quasi alias, iste fuga.",
+    text: "Fantastic food...fantastic atmosphere...amazing hosts!",
     author: "— Jane Doe",
   },
   {
