@@ -1,6 +1,34 @@
 import { Building2, Expand, BedDouble, ShowerHead } from "lucide-react";
 import { Btn} from "./helper/Btn";
 
+function RoomBtn({
+	text = "Click Me",
+  className = "", // Extra utility
+  onClick = () => {},
+  }){
+	return(
+    <div
+      onClick={onClick}
+      className={`flex justify-center items-center text-center hidden md:flex text-white cursor-pointer transition-all duration-500 ease-in-out hover:rounded-xl hover:scale-105 hover:text-secondary text-sm mx-auto h-11 w-12/12 font-quickSand bg-secondary hover:bg-transparent border border-lightBlue`}>
+      {text}
+    </div>
+  );
+}
+function formatCurrency(currency,number) {
+
+      const fixedNumber = Number(number).toFixed(0)
+
+      // Convert to string and handle decimal part if present
+      const parts = fixedNumber.toString().split('.');
+      const wholePart = parts[0];
+      const decimalPart = parts.length > 1 ? '.' + parts[1] : '';
+      
+      // Add spaces between thousands
+      const formattedWholePart = wholePart.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      
+      // Return formatted number with R prefix
+      return `${currency} ` + formattedWholePart + decimalPart;
+}
 
 const RoomInfo = ({info,Icon})=>{
 	return(
@@ -15,13 +43,14 @@ const RoomInfo = ({info,Icon})=>{
 }
 
 const RowCard = ({data}) => {
+
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 items-center my-8 `}>
-      <img src={data.image} alt={data.name} className="w-full h-94 object-cover rounded-md" />
-      <div className="flex flex-col gap-3 ">
-      	<div className="flex flex-row justify-between">
+    <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 items-center my-8  `}>
+      <img src={data.image} alt={data.name} className="w-full h-full md:h-full lg:h-94 object-cover rounded-md" />
+      <div className="flex flex-col gap-5 ">
+      	<div className="flex lg:flex-row flex-col justify-between">
       		<div className="font-vibes text-4xl">{data.name}</div>
-      		<div className="font-playfair text-2xl">E {data.price}</div>
+      		<div className="font-playfair text-2xl">{formatCurrency('E',data.price)}</div>
       	</div>
       	<div className="font-raleway">{data.description}</div>
   		<div className="flex flex-col gap-5">
@@ -30,12 +59,13 @@ const RowCard = ({data}) => {
   			<RoomInfo info={`Beds: ${data.beds}`} Icon={BedDouble} />
   			<RoomInfo info={`Bathrooms: ${data.bathrooms}`} Icon={ShowerHead} />
   		</div>
-  		<div className="flex flex-row w-8/12 gap-5">
+  		<div className="flex flex-row w-12/12 lg:w-8/12 gap-5">
 
-			<Btn text="Check Availabilty" textColor="hidden md:flex text-white hover:text-secondary text-sm trasition-all duration-500 hover:rounded-xl hover:scale-103 mx-auto " font="font-Roboto" width='h-11 w-12/12'/>
+				<RoomBtn text="Check Availabilty" />
 
-			<Btn text="Take Virtual Tour" textColor="hidden md:flex text-white hover:text-secondary text-sm trasition-all duration-500 hover:rounded-xl hover:scale-103 mx-auto " font="font-Roboto" width='h-11 w-12/12'/>
+				<RoomBtn text="Take Virtual Tour"/>
    		</div>
+
       </div>
     </div>
   );
@@ -59,7 +89,7 @@ export function Rooms(){
           {/* GET DATA FROM BACKEND AND LOOP OVER */}
 
 		      {roomData.map(data=>{
-		      	return <RowCard data={data}/>
+		      	return <RowCard key={data.id}  data={data}/>
 		      })}
 			</div>
 		</>
