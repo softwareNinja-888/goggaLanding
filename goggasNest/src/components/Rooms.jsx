@@ -9,7 +9,7 @@ function RoomBtn({
 	return(
     <div
       onClick={onClick}
-      className={`flex justify-center items-center text-center hidden md:flex text-white cursor-pointer transition-all duration-500 ease-in-out hover:rounded-xl hover:scale-105 hover:text-secondary text-sm mx-auto h-11 w-12/12 font-quickSand bg-secondary hover:bg-transparent border border-lightBlue`}>
+      className={`flex justify-center items-center text-center flex text-white cursor-pointer transition-all duration-500 ease-in-out hover:rounded-xl hover:scale-105 hover:text-secondary text-sm mx-auto h-11 w-12/12 font-quickSand bg-secondary hover:bg-transparent border border-lightBlue`}>
       {text}
     </div>
   );
@@ -44,6 +44,15 @@ const RoomInfo = ({info,Icon})=>{
 
 const RowCard = ({data}) => {
 
+	function roomAvailability(e){
+		e.preventDefault()
+		alert('Check Room Availabilty')
+	}
+	function roomTour(e){
+		e.preventDefault()
+		alert('Take Room Tour')
+	}
+
   return (
     <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 items-center my-8  `}>
       <img src={data.image} alt={data.name} className="w-full h-full md:h-full lg:h-94 object-cover rounded-md" />
@@ -61,9 +70,9 @@ const RowCard = ({data}) => {
   		</div>
   		<div className="flex flex-row w-12/12 lg:w-8/12 gap-5">
 
-				<RoomBtn text="Check Availabilty" />
+				<RoomBtn text="Check Availabilty" onClick={roomAvailability}/>
 
-				<RoomBtn text="Take Virtual Tour"/>
+				<RoomBtn text="Take Virtual Tour" onClick={roomTour}/>
    		</div>
 
       </div>
@@ -86,8 +95,8 @@ export function Rooms(){
 		<>
 			<div className="grid grid-cols-1 mx-auto px-4 py-0 w-11/12" id="rooms">
           <div className="text-5xl font-playfair uppercase text-center mb-16">Our Rooms</div>
-          {/* GET DATA FROM BACKEND AND LOOP OVER */}
 
+          {/* GET DATA FROM BACKEND AND LOOP OVER */}
 		      {roomData.map(data=>{
 		      	return <RowCard key={data.id}  data={data}/>
 		      })}
