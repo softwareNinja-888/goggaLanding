@@ -5,7 +5,7 @@ export function Logo({ name='WayPoint Media',textColor='text-white text-3xl',bg=
     console.log(iconOnly)
     return (
         <>
-            <a href='/' className={`flex justify-center items-center gap-4 cursor-pointer font-Cal_Sans ${textColor} `} >
+            <a aria-label="logo" href='/' className={`flex justify-center items-center gap-4 cursor-pointer font-Cal_Sans ${textColor} `} >
                 <div className={`md:block text-2xl md:text-3xl font-vibes ${iconOnly ? 'hidden' : ''}`}>{name}</div>
                 <div>
                     <IoBedOutline className="w-7 h-7"/>

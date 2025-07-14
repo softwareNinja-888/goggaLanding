@@ -3,11 +3,11 @@ import { Logo } from './helper/Logo'
 import { Map } from './Map'
 
 
-function SocialIcons({path,socialLink}){
+function SocialIcons({path,socialLink,name}){
     return (
         <>
             <li>
-                <a href={socialLink} target="_blank" title="" className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-blue-600 focus:bg-blue-600">
+                <a aria-label={name} href={socialLink} target="_blank" title="" className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-blue-600 focus:bg-blue-600">
                     <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                        {path}
                     </svg>
@@ -20,7 +20,7 @@ function LinkFooter({name='About',href='/about'}){
     return (
         <>
             <li>
-                <a href={href} className="flex text-sm text-black font-Poppins transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> 
+                <a aria-label={name} href={href} className="flex text-sm text-black font-Poppins transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> 
                     {name}
                 </a>
             </li>
@@ -46,7 +46,7 @@ function FormFooter(){
                     <textarea name="message" id="message" placeholder='Your Message' className='block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 resize-none h-44'></textarea>
                 </div>
 
-                <button type="button" className="inline-flex items-center justify-center px-6 py-4 mt-3 font-inter700 text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700 cursor-pointer hover:scale-102" onClick={()=>{setIsVisible(true)}}>Send</button>
+                <button aria-label="Submit contact form" type="button" className="inline-flex items-center justify-center px-6 py-4 mt-3 font-inter700 text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700 cursor-pointer hover:scale-102" onClick={()=>{setIsVisible(true)}}>Send</button>
             </form>
         </>
         )
@@ -89,10 +89,10 @@ export function Footer(){
                             <p className="text-base leading-relaxed text-black mt-7 font-Poppins">Socials made simple, strategy made smart. We help businesses create scroll-stopping content that builds brand love, trust, and conversions—start today.</p>
 
                             <ul className="flex items-center space-x-3 mt-9">
-                                <SocialIcons path={pathX} socialLink='https://www.x.com/'/>
-                                <SocialIcons path={pathFacebook} socialLink='https://www.facebook.com/'/>
-                                <SocialIcons path={pathInsta} socialLink='https://www.instagram.com/'/>
-                                <SocialIcons path={pathTripAdvisor} socialLink='https://www.tripadvisor.com/'/>
+                                <SocialIcons name="twitter" path={pathX} socialLink='https://www.x.com/'/>
+                                <SocialIcons name="facebook" path={pathFacebook} socialLink='https://www.facebook.com/'/>
+                                <SocialIcons name="instagram" path={pathInsta} socialLink='https://www.instagram.com/'/>
+                                <SocialIcons name="tripadvisor" path={pathTripAdvisor} socialLink='https://www.tripadvisor.com/'/>
 
                             </ul>
                         </div>

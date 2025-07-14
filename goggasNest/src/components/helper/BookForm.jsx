@@ -119,7 +119,7 @@ export function BookForm(){
             exit="exit"
           >
             <div className="text-center">
-              <div className="text-2xl font-bold mb-2">Search Submitted!</div>
+              <div className="text-2xl font-bold mb-2">Room Booked Check E-mail For Details</div>
               <div className="text-sm opacity-90">Finding your perfect stay...</div>
             </div>
           </motion.div>
@@ -228,9 +228,6 @@ export function BookForm(){
           className="w-full mt-4 md:mt-0 md:col-span-2 lg:col-span-4"
           variants={fieldVariants}
         >
-       {/*  textColor="text-white hover:text-secondary text-sm transition-all duration-500 hover:rounded-xl hover:scale-103"
-              font="font-Roboto"
-              width="h-11 w-36"*/}
           <Btn
             text={isLoading ? "Searching..." : "Search Availability"}
             textColor="text-white hover:text-secondary text-sm transition-all duration-500 hover:rounded-xl hover:scale-103"

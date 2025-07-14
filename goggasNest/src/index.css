@@ -2,64 +2,64 @@
 
 @font-face{
     font-family: 'playfair';
-    src: url('./assets/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format("truetype");
+    src: url('./assets/mainFonts/PlayfairDisplay-Regular.woff2') format("woff2");
     font-weight: 500;
     font-style: normal;
 }
 @font-face{
   font-family: 'playfairBold';
-  src: url('./assets/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf') format("truetype");
+  src: url('./assets/mainFonts/PlayfairDisplay-Bold.woff2') format("woff2");
   font-weight: 900;
   font-style: normal;
 }
 @font-face{
   font-family: 'libre';
-  src: url('./assets/fonts/Libre_Bodoni/static/LibreBodoni-Regular.ttf') format("truetype");
+  src: url('./assets/mainFonts/LibreBodoni-Regular.woff2') format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 @font-face{
   font-family: 'libreItalic';
-  src: url('./assets/fonts/Libre_Bodoni/static/LibreBodoni-Italic.ttf') format("truetype");
+  src: url('./assets/mainFonts/LibreBodoni-Italic.woff2') format("woff2");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face{
   font-family: 'cinzel';
-  src: url('./assets/fonts/Cinzel/static/Cinzel-Regular.ttf') format("truetype");
+  src: url('./assets/mainFonts/Cinzel-Regular.woff2') format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 @font-face{
   font-family: 'cinzelBold';
-  src: url('./assets/fonts/Cinzel/static/Cinzel-Bold.ttf') format("truetype");
+  src: url('./assets/mainFonts/Cinzel-Bold.woff2') format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face{
   font-family: 'italiana';
-  src: url('./assets/fonts/Italiana/Italiana-Regular.ttf') format("truetype");
+  src: url('./assets/mainFonts/Italiana-Regular.woff2') format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 @font-face{
   font-family: 'raleway';
-  src: url('./assets/fonts/Raleway/static/Raleway-Regular.ttf') format("truetype");
+  src: url('./assets/mainFonts/Raleway-Regular.woff2') format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face{
   font-family: 'quickSand';
-  src: url('./assets/fonts/Quicksand/static/Quicksand-Regular.ttf') format("truetype");
+  src: url('./assets/mainFonts/Quicksand/static/Quicksand-Regular.woff2') format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 @font-face{
   font-family: 'vibes';
-  src: url('./assets/fonts/GreatVibes-Regular.ttf') format("truetype");
+  src: url('./assets/mainFonts/GreatVibes-Regular.woff2') format("woff2");
   font-weight: 400;
   font-style: normal;
 }
