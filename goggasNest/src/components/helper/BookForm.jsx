@@ -1,100 +1,246 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Btn } from "./Btn";
-import { useState, useEffect, useRef } from "react";
-import { format } from "date-fns";
-import { DayPicker } from "react-day-picker";
-import "react-day-picker/dist/style.css";
 
-export function BookForm() {
-  const [range, setRange] = useState({ from: undefined, to: undefined });
-  const [showCalendar, setShowCalendar] = useState(false);
 
-  const calendarRef = useRef(null);
-  const inputRef = useRef(null);
+export function BookForm(){
 
-  const formattedRange =
-    range.from && range.to
-      ? `${format(range.from, "MMM dd, yyyy")} - ${format(range.to, "MMM dd, yyyy")}`
-      : "Select dates";
+  const [checkInDate, setCheckInDate] = useState('');
+  const [checkOutDate, setCheckOutDate] = useState('');
+  const [selectedRoom, setSelectedRoom] = useState('');
+  const [guests, setGuests] = useState('2');
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  // Detect click outside to close calendar
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        calendarRef.current &&
-        !calendarRef.current.contains(event.target) &&
-        !inputRef.current.contains(event.target)
-      ) {
-        setShowCalendar(false);
+  // Animation variants
+  const formVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        staggerChildren: 0.1
       }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    }
+  };
+
+  const fieldVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.4, ease: "easeOut" }
+    }
+  };
+
+  const successVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      transition: { duration: 0.3 }
+    }
+  };
+
+  // Form validation
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!checkInDate) newErrors.checkIn = 'Check-in date is required';
+    if (!checkOutDate) newErrors.checkOut = 'Check-out date is required';
+    if (!selectedRoom) newErrors.room = 'Please select a room';
+    
+    if (checkInDate && checkOutDate) {
+      const checkIn = new Date(checkInDate);
+      const checkOut = new Date(checkOutDate);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      
+      if (checkIn < today) {
+        newErrors.checkIn = 'Check-In date cannot be in the past';
+      }
+      if (checkOut <= checkIn) {
+        newErrors.checkOut = 'Check-Out must be after check-in';
+      }
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // TODO: SEND DATA TO API FOR PROCCESSING:
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    setIsLoading(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    setIsLoading(false);
+    setShowSuccess(true);
+    
+    // Hide success message after 3 seconds
+    setTimeout(() => setShowSuccess(false), 3000);
+  };
+
+  // TODO: GET DATA FROM DB
+  const rooms = [
+    { id: 'deluxe', name:'Mission Dolores Park', price: 'From E1500/night' },
+    { id: 'suite', name:'The Castro', price: 'From E1200/night' },
+    { id: 'cabin', name:'Haight & Ashbury', price: 'From E1000/night' },
+    { id: 'presidential', name:'The Golden Gate', price: 'From E800/night' }
+  ];
 
   return (
-    <div className="relative bg-white/70 backdrop-blur-lg p-4 sm:p-6 w-full max-w-[95%] sm:max-w-[85%] md:max-w-[75%] lg:max-w-[85%] xl:max-w-[80%] 2xl:max-w-[70%] mx-auto rounded-2xl shadow-md">
-      <form className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end relative">
-        {/* Check-in / Check-out */}
-        <div className="flex flex-col gap-2 relative">
-          <label className="text-sm font-medium text-gray-700" htmlFor="checkInOut">
-            Check-in and Check-out
+    <motion.div
+      className="relative bg-white/80 backdrop-blur-sm p-6 sm:p-8 w-full max-w-4xl mx-auto rounded-2xl shadow-lg border border-white/20"
+      variants={formVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            className="absolute inset-0 bg-emerald-600 text-white rounded-2xl flex items-center justify-center z-10"
+            variants={successVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <div className="text-center">
+              <div className="text-2xl font-bold mb-2">Search Submitted!</div>
+              <div className="text-sm opacity-90">Finding your perfect stay...</div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+        {/* Check-in Date */}
+        <motion.div className="flex flex-col gap-2" variants={fieldVariants}>
+          <label className="text-sm font-semibold text-gray-700" htmlFor="checkIn">
+            Check-in
           </label>
           <input
-            ref={inputRef}
-            type="text"
-            id="checkInOut"
-            name="checkInOut"
-            readOnly
-            value={formattedRange}
-            onClick={() => setShowCalendar(!showCalendar)}
-            className="w-full border border-black px-3 py-2 bg-transparent outline-none shadow-sm cursor-pointer rounded-md"
+            type="date"
+            id="checkIn"
+            value={checkInDate}
+            onChange={(e) => setCheckInDate(e.target.value)}
+            className={`w-full border ${errors.checkIn ? 'border-red-500' : 'border-gray-300'} px-3 py-2.5 bg-white/50 outline-none rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200`}
+            min={new Date().toISOString().split('T')[0]}
           />
-
-          {showCalendar && (
-            <div
-              ref={calendarRef}
-              className="absolute z-20 top-full left-0 mt-2 bg-white p-3 shadow border border-gray-200 rounded-md max-w-[90vw] sm:max-w-none"
+          {errors.checkIn && (
+            <motion.span
+              className="text-red-500 text-xs"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
             >
-              <DayPicker
-                mode="range"
-                selected={range}
-                onSelect={setRange}
-                numberOfMonths={window.innerWidth < 640 ? 1 : 2}
-                defaultMonth={range?.from}
-              />
-            </div>
+              {errors.checkIn}
+            </motion.span>
           )}
-        </div>
+        </motion.div>
+
+        {/* Check-out Date */}
+        <motion.div className="flex flex-col gap-2" variants={fieldVariants}>
+          <label className="text-sm font-semibold text-gray-700" htmlFor="checkOut">
+            Check-out
+          </label>
+          <input
+            type="date"
+            id="checkOut"
+            value={checkOutDate}
+            onChange={(e) => setCheckOutDate(e.target.value)}
+            className={`w-full border ${errors.checkOut ? 'border-red-500' : 'border-gray-300'} px-3 py-2.5 bg-white/50 outline-none rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200`}
+            min={checkInDate || new Date().toISOString().split('T')[0]}
+          />
+          {errors.checkOut && (
+            <motion.span
+              className="text-red-500 text-xs"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              {errors.checkOut}
+            </motion.span>
+          )}
+        </motion.div>
 
         {/* Room Selection */}
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-gray-700" htmlFor="roomSelect">
-            Room
+        <motion.div className="flex flex-col gap-2" variants={fieldVariants}>
+          <label className="text-sm font-semibold text-gray-700" htmlFor="room">
+            Room Type
           </label>
           <select
-            id="roomSelect"
-            className="w-full border border-black outline-none px-3 py-2 bg-transparent rounded-md"
+            id="room"
+            value={selectedRoom}
+            onChange={(e) => setSelectedRoom(e.target.value)}
+            className={`w-full border ${errors.room ? 'border-red-500' : 'border-gray-300'} px-3 py-2.5 bg-white/50 outline-none rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200`}
           >
-            <option>Room 1</option>
-            <option>Room 2</option>
-            <option>Room 3</option>
-            <option>Room 4</option>
-            <option>Room 5</option>
+            <option value="">Select a room</option>
+            {rooms.map(room => (
+              <option key={room.id} value={room.id}>
+                {room.name} - {room.price}
+              </option>
+            ))}
           </select>
-        </div>
+          {errors.room && (
+            <motion.span
+              className="text-red-500 text-xs"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              {errors.room}
+            </motion.span>
+          )}
+        </motion.div>
+
+        {/* Guests */}
+        <motion.div className="flex flex-col gap-2" variants={fieldVariants}>
+          <label className="text-sm font-semibold text-gray-700" htmlFor="guests">
+            Guests
+          </label>
+          <select
+            id="guests"
+            value={guests}
+            onChange={(e) => setGuests(e.target.value)}
+            className="w-full border border-gray-300 px-3 py-2.5 bg-white/50 outline-none rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200"
+          >
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5+ Guests</option>
+          </select>
+        </motion.div>
 
         {/* Submit Button */}
-        <div className="w-full mt-3">
-          <button type="submit" className="w-full h-full">
-            <Btn
-              text="Search Availability"
-              textColor="text-white hover:text-secondary text-sm transition-all duration-500 hover:rounded-xl hover:scale-103"
+        <motion.div
+          className="w-full mt-4 md:mt-0 md:col-span-2 lg:col-span-4"
+          variants={fieldVariants}
+        >
+       {/*  textColor="text-white hover:text-secondary text-sm transition-all duration-500 hover:rounded-xl hover:scale-103"
               font="font-Roboto"
-              width="h-11 w-full"
-            />
-          </button>
-        </div>
-      </form>
-    </div>
+              width="h-11 w-36"*/}
+          <Btn
+            text={isLoading ? "Searching..." : "Search Availability"}
+            textColor="text-white hover:text-secondary text-sm transition-all duration-500 hover:rounded-xl hover:scale-103"
+            font="font-Roboto"
+            width="h-12 w-full"
+            onClick={handleSubmit}
+            disabled={isLoading}
+          />
+        </motion.div>
+      </div>
+    </motion.div>
   );
-}
+};
