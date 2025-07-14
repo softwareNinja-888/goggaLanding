@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <div className="flex flex-col gap-40">
-        <div className="bg-center bg-cover bg-no-repeat py-6  " style={{backgroundImage: "url('area/goggaHero.jpg')"}}>
+        <div className="bg-center bg-cover bg-no-repeat py-6  " style={{backgroundImage: "url('area/goggaHero.avif')"}}>
           {/*1. Header (Logo + Navigation)*/}
           <Header/>
 
