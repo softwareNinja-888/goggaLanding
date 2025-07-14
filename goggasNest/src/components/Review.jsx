@@ -31,7 +31,8 @@ export function Review() {
     <div className="relative w-full max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       {/* Background image */}
       <img
-        src="/area/garden.jpg"
+        loading="lazy"
+        src="/area/garden.avif"
         alt="Review Background"
         className="opacity-0 md:opacity-100 w-full h-auto object-cover rounded-lg"
       />

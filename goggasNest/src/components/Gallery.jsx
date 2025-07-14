@@ -27,12 +27,12 @@ export function Gallery() {
                 <div id="gallery" className="text-5xl font-playfair uppercase text-center mb-16">Gallery</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 mx-auto justify-center items-center w-11/12 lg:w-11/12 gap-18 md:gap-3">
 
-                    <GalleryCard name="Dining Area" img="area/view.jpg"/>
-                    <GalleryCard name="Vast Greenery" img="area/garden.jpg"/>
-                    <GalleryCard name="Five Star Meals" img="food/food3.jpg"/>
-                    <GalleryCard name="Lake Views" img="area/view3.jpg"/>
-                    <GalleryCard name="Dining Table" img="area/goggaDining.jpg"/>
-                    <GalleryCard name="Array Of Desserts" img="food/dessert4.jpg"/>
+                    <GalleryCard name="Dining Area" img="area/view.avif"/>
+                    <GalleryCard name="Vast Greenery" img="area/garden.avif"/>
+                    <GalleryCard name="Five Star Meals" img="food/food3.avif"/>
+                    <GalleryCard name="Lake Views" img="area/view3.avif"/>
+                    <GalleryCard name="Dining Table" img="area/goggaDining.avif"/>
+                    <GalleryCard name="Array Of Desserts" img="food/dessert4.avif"/>
                 </div>
            </div>
 

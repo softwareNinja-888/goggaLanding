@@ -25,22 +25,22 @@ export function Highlights(){
 	            <div className="pt-0 pb-10 uppercase font-playfair text-5xl text-center ">Highlights</div>
             	<div className="overflow-hidden w-full pt-20">
                 <div className="flex gap-20 w-max animate-[marquee_30s_linear_infinite]">
-                    <Card img="/area/bar1.jpg" name="Bar Area"/>
-                    <Card img="/area/viewBalcony.jpg" name="Great Views"/>
-                    <Card img="/area/wedding.jpg" name="Hosted Wedding"/>
-                    <Card img="/area/view4.jpg"/>
-                    <Card img="/area/bar.jpg" name="Bar" />
-                    <Card img="/area/viewNight.jpg" name="Night View"/>
+                    <Card img="/area/bar1.avif" name="Bar Area"/>
+                    <Card img="/area/viewBalcony.avif" name="Great Balcony Views"/>
+                    <Card img="/area/wedding.avif" name="Hosted Wedding"/>
+                    <Card img="/area/view4.avif"/>
+                    <Card img="/area/bar.avif" name="Bar" />
+                    <Card img="/area/viewNight.avif" name="Night View"/>
 
 
 
                     {/* DUPLICATE OF ABOVE */}
-					<Card img="/area/bar1.jpg" name="Bar Area"/>
-                    <Card img="/area/viewBalcony.jpg" name="Great Views"/>
-                    <Card img="/area/wedding.jpg" name="Hosted Wedding"/>
-                    <Card img="/area/view4.jpg"/>
-                    <Card img="/area/bar.jpg" name="Bar" />
-                    <Card img="/area/viewNight.jpg" name="Night View"/>
+					<Card img="/area/bar1.avif" name="Bar Area"/>
+                    <Card img="/area/viewBalcony.avif" name="Great Views"/>
+                    <Card img="/area/wedding.avif" name="Hosted Wedding"/>
+                    <Card img="/area/view4.avif"/>
+                    <Card img="/area/bar.avif" name="Bar" />
+                    <Card img="/area/viewNight.avif" name="Night View"/>
                 </div>
             </div>
             </div>

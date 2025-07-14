@@ -55,7 +55,7 @@ const RowCard = ({data}) => {
 
   return (
     <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 items-center my-8  `}>
-      <img src={data.image} alt={data.name} className="w-full h-full md:h-full lg:h-94 object-cover rounded-md" />
+      <img src={data.image} alt={data.name} className="w-full h-full md:h-full lg:h-94 object-cover rounded-md" loading="lazy"/>
       <div className="flex flex-col gap-5 ">
       	<div className="flex lg:flex-row flex-col justify-between">
       		<div className="font-vibes text-4xl">{data.name}</div>
@@ -86,10 +86,10 @@ export function Rooms(){
 	const text = 'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an'
 
 	const roomData = [
-		{id:0, name:'Mission Dolores Park',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'1500',rooms:'4',size:'150',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room.jpg"},
-		{id:1, name:'The Castro',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'1200',rooms:'4',size:'150',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room6.jpg"},
-		{id:2, name:'Haight & Ashbury',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'1000',rooms:'2',size:'130',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room2.jpg"},
-		{id:3, name:'The Golden Gate',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'800',rooms:'2',size:'120',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room3.jpg"},
+		{id:0, name:'Mission Dolores Park',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'1500',rooms:'4',size:'150',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room.avif"},
+		{id:1, name:'The Castro',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'1200',rooms:'4',size:'150',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room6.avif"},
+		{id:2, name:'Haight & Ashbury',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'1000',rooms:'2',size:'130',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room2.avif"},
+		{id:3, name:'The Golden Gate',description:'Skincare should be a moment of self-care, not a compromise. Our products blend luxurious textures with powerful natural ingredients, creating an',price:'800',rooms:'2',size:'120',beds:'2 king, 4 Singles',bathrooms:'2',image:"/room/room3.avif"},
 	]
 	return(
 		<>
